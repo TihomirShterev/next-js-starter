@@ -3,6 +3,7 @@ import Head from "next/head";
 import getConfig from "next/config";
 import { RootComponentInstance } from "@uniformdev/canvas";
 import {
+  UniformComponent,
   UniformComposition,
   UniformSlot,
   createUniformApiEnhancer,
@@ -10,7 +11,7 @@ import {
 import { ToggleEmbeddedContextDevTools } from "@uniformdev/context-devtools";
 import Navigation, { NavLink } from "./Navigation";
 import Footer from "./Footer";
-import { UniformDeployedPreviewBanner } from '@/components/UniformDeployedPreviewBanner';
+import { UniformDeployedPreviewBanner } from "@/components/UniformDeployedPreviewBanner";
 
 const { serverRuntimeConfig } = getConfig();
 const { projectId, apiKey, apiHost } = serverRuntimeConfig;
@@ -43,6 +44,7 @@ export default function PageComposition({
           data={composition}
           contextualEditingEnhancer={contextualEditingEnhancer}
         >
+          <UniformSlot name="testSlotTihomir" />
           <UniformSlot name="content" />
         </UniformComposition>
         <ToggleEmbeddedContextDevTools
